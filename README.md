@@ -54,16 +54,17 @@ class Product(db.Model):
   - Fetch Particular Product
       - Request URL (http://127.0.0.1:5000/fetch-products?product_id=4) for particular product with product_id = 4
       - Response -
-            
-                  {
-                    "average_ratings": 3,
-                    "product_id": "4",
-                    "total_ratings": 6
-                  }
+```
+    {
+    "average_ratings": 3,
+    "product_id": "4",
+    "total_ratings": 6
+    }
+```                  
                   
-                  
-       - <img src="https://imgur.com/t6oivS6.png" width="50%"/>
-   - Fetch all the products
+<img src="https://imgur.com/t6oivS6.png" width="50%"/>
+
+- Fetch all the products
       - Request URL (http://127.0.0.1:5000/fetch-products) for all the products in the database
       - Response -
       
