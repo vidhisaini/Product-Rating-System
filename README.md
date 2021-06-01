@@ -19,17 +19,13 @@ The following assignment provides insights about the design flow, architectural 
 
 ## Technology Stack
 
-- Programming Languages
-    - Python 3.6
+- **Programming Languages** - Python 3.6
     
-- Frameworks
-  - Flask 2.0.1
+- **Frameworks** - Flask 2.0.1
 
-- Database
-     - SQLAlchemy 1.4.17
+- **Database** - SQLAlchemy 1.4.17
 
-- APIs
-    - REST Api
+- **APIs** - REST Api
     
 ## Database Schema
 ```
@@ -49,69 +45,7 @@ class Product(db.Model):
 
 ## Formats for APIs
 
-- **GET API** (Fetch product ratings)
- 
-  - Fetch Particular Product
-      - Request URL (http://127.0.0.1:5000/fetch-products?product_id=4) for particular product with product_id = 4
-      - Response -
-```
-    {
-    "average_ratings": 3,
-    "product_id": "4",
-    "total_ratings": 6
-    }
-```                  
-                  
-<img src="https://imgur.com/t6oivS6.png" width="50%"/>
-
-- Fetch all the products
-      - Request URL (http://127.0.0.1:5000/fetch-products) for all the products in the database
-      - Response -
-      
-                [
-                  {
-                      "average_ratings": 2.8,
-                      "product_id": "4",
-                      "total_ratings": 5
-                  },
-                  {
-                      "average_ratings": 4.6,
-                      "product_id": "5",
-                      "total_ratings": 5
-                  }
-                ]
-                
-      - <img src="https://imgur.com/6hFqSdp.png" width="50%"/>
-      
-- **PUT API** (Rate Product)
-
-  - Request URL (http://127.0.0.1:5000/rate-product)
-      - Body - List of JSON Objects 
-      
-            [
-                {
-                  "product_id": "9",
-                  "rating": 4
-                },
-                {
-                  "product_id" : "4",
-                  "rating" : 4
-                }
-             ]
-              
-     - Response - 
-      
-                [
-                    {
-                        "Message": "Product with product id 9 does not exist!"
-                    },
-                    {
-                        "Message": "Rating of product with product id 4 has been saved successfully!"
-                    }
-                ]
-     - <img src="https://imgur.com/ELw0yxU.png" width="50%"/>
-     
-- **POST API**
+- **POST API** (Add Product)
   
   - Request URL - (http://127.0.0.1:5000/add-product)
   - Body - 
@@ -128,17 +62,75 @@ class Product(db.Model):
               "average_ratings" : 2
             }
          ]
-    - Response - 
+   - Response - 
               
               [
               {"Message": "Product with product id 7 inserted!"},
               {"Message": "Product with product id 8 inserted!"}
               ]
-    - <img src="https://imgur.com/mBmuq4M.png" width="50%"/>
+   - <img src="https://imgur.com/mBmuq4M.png" width="50%"/>
+
+- **PUT API** (Rate Product)
+
+  - Request URL (http://127.0.0.1:5000/rate-product)
+  - Body - List of JSON Objects 
   
+            [
+                {
+                  "product_id": "9",
+                  "rating": 4
+                },
+                {
+                  "product_id" : "4",
+                  "rating" : 4
+                }
+             ]
+   - Response - 
+ 
+                [
+                    {
+                        "Message": "Product with product id 9 does not exist!"
+                    },
+                    {
+                        "Message": "Rating of product with product id 4 has been saved successfully!"
+                    }
+                ]
+  
+    - <img src="https://imgur.com/ELw0yxU.png" width="50%"/>
+
+- **GET API** (Fetch product ratings)
+ 
+  - Fetch Rating for particular Product
+    - Request URL (http://127.0.0.1:5000/fetch-products?product_id=4) for particular product with product_id = 4
+    - Response -
+    
+            {
+            "average_ratings": 3,
+            "product_id": "4",
+            "total_ratings": 6
+            }                
+    - <img src="https://imgur.com/t6oivS6.png" width="50%"/>
+
+  - Fetch Rating for all the products
+    - Request URL (http://127.0.0.1:5000/fetch-products) for all the products in the database
+    - Response -
+
+            [
+              {
+                  "average_ratings": 2.8,
+                  "product_id": "4",
+                  "total_ratings": 5
+              },
+              {
+                  "average_ratings": 4.6,
+                  "product_id": "5",
+                  "total_ratings": 5
+              }
+            ]   
+    - <img src="https://imgur.com/6hFqSdp.png" width="50%"/>
+      
 
 ## Note
-- POST API is used for testing purposes
 - All the APIs are tested using Postman
 - This assignment deals with APIs for fetching and rating products, Event Scheduler is theoretical part here.
 - Further modifications can be done by integrating *review description* of each product, optional though.
